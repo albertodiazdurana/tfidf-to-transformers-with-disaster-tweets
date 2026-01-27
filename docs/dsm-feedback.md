@@ -99,19 +99,28 @@ Each entry should include:
 
 ---
 
-### Day 3 - Modeling & Evaluation
+### Day 3 - Modeling & Evaluation (2026-01-26)
 
 **DSM Sections Referenced:**
-- (To be filled after Day 3)
+- Section 2.4 (Phase 3: Analysis/Modeling)
+- Appendix D.2 (NLP Domain - model recommendations)
+- PM Guidelines: Checkpoint template
 
 **What Worked Well:**
--
+- Baseline-then-compare approach (Logistic Regression → Naive Bayes) provided clear progression
+- Error analysis framework helped identify model limitations systematically
+- Checkpoint template guided comprehensive model documentation (metrics, rationale, limitations)
+- Cell-by-cell protocol caught issues early (e.g., confusion matrix interpretation)
 
 **What Was Unclear/Missing:**
--
+- No explicit guidance on model selection criteria for different business contexts (precision vs recall tradeoffs)
+- Appendix D.2 could include common evaluation metrics interpretation for NLP classification
+- No template for documenting model comparison decisions
 
 **Suggestion for DSM Improvement:**
--
+- Add model comparison checklist to Section 2.4 (metrics to compute, visualization requirements)
+- Include domain-specific evaluation guidance in appendices (e.g., when to prioritize recall vs precision)
+- Add error analysis template with categories (false positives, false negatives, edge cases)
 
 ---
 
