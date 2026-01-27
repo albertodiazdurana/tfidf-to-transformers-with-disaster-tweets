@@ -77,19 +77,25 @@ Each entry should include:
 
 ---
 
-### Day 2 - Preprocessing & Vectorization
+### Day 2 - Preprocessing & Vectorization (2026-01-26)
 
 **DSM Sections Referenced:**
-- (To be filled after Day 2)
+- Section 2.3 (Phase 2: Feature Engineering)
+- Appendix D.2 (NLP Domain - preprocessing steps)
+- PM Guidelines: Daily Checkpoint template
 
 **What Worked Well:**
--
+- Day 1 EDA directly informed preprocessing decisions (documented strategy)
+- Cell-by-cell protocol caught edge case (empty text) immediately
+- Checkpoint template captures variables ready for next phase
 
 **What Was Unclear/Missing:**
--
+- Appendix D.2 could include common TF-IDF parameter ranges for text classification
+- No guidance on handling edge cases (empty texts after preprocessing)
 
 **Suggestion for DSM Improvement:**
--
+- Add NLP preprocessing checklist to Appendix D.2 with common parameters
+- Include edge case handling patterns (empty strings, encoding issues)
 
 ---
 
