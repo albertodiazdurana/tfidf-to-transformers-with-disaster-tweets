@@ -200,3 +200,11 @@ Each entry should include:
   - Runtime selection guidance (CPU vs GPU)
 - Include note that external APIs change authentication methods over time
 - Add guidance on testing notebooks in multiple environments before delivery
+
+**Language Note:**
+- Avoid patriarchal/imperial language in technical writing (e.g., "king", "queen", "master/slave")
+- Changed "context became king" → "context changed everything" in README and notebook
+- Common word embedding example "king - man + woman = queen" should use alternative examples:
+  - "Paris - France + Japan = Tokyo" (geography)
+  - "doctor - man + woman = doctor" (profession, shows bias awareness)
+  - "good - better = bad - worse" (analogy)

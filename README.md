@@ -18,7 +18,7 @@ The goal of this project goes beyond achieving a high F1 score. The intention is
 
 1. **TF-IDF** - How machines first learned to "read" (word counts)
 2. **Word Embeddings** - How words gained meaning (semantic vectors)
-3. **Sentence Transformers** - How context became king (the transformer architecture behind GPT/BERT)
+3. **Sentence Transformers** - How context changed everything (the transformer architecture behind GPT/BERT)
 
 By building each approach and comparing results empirically, we develop intuition for *why* transformers revolutionized NLP - not just *that* they did.
 
