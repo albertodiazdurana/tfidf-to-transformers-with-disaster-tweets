@@ -12,6 +12,16 @@
 
 The model must learn **context**, not just keywords.
 
+## Why This Approach
+
+The goal of this project goes beyond achieving a high F1 score. The intention is to **understand LLMs from the ground up** by progressively exploring how text representation evolved:
+
+1. **TF-IDF** - How machines first learned to "read" (word counts)
+2. **Word Embeddings** - How words gained meaning (semantic vectors)
+3. **Sentence Transformers** - How context became king (the transformer architecture behind GPT/BERT)
+
+By building each approach and comparing results empirically, we develop intuition for *why* transformers revolutionized NLP - not just *that* they did.
+
 **Dataset:** 7,613 labeled tweets from [Kaggle NLP Getting Started](https://www.kaggle.com/c/nlp-getting-started)
 
 ![Class Distribution](outputs/figures/class_distribution.png)
@@ -82,13 +92,17 @@ Transformers/BERT (2018+)
 ## Run the Notebook
 
 **Google Colab (recommended):**
-Open `notebooks/s03_disaster_tweets.ipynb` in Colab - dependencies install automatically.
+1. Open `notebooks/s03_disaster_tweets.ipynb` in Colab
+2. The notebook auto-downloads data from Kaggle (requires [Kaggle API credentials](https://www.kaggle.com/docs/api))
+3. Dependencies install automatically
 
 **Local:**
 ```bash
 pip install pandas numpy scikit-learn matplotlib seaborn nltk gensim sentence-transformers xgboost
 jupyter notebook notebooks/s03_disaster_tweets.ipynb
 ```
+
+**Data:** Auto-downloads from Kaggle if `data/train.csv` not present.
 
 ## Author
 
