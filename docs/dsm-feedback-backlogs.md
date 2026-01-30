@@ -226,11 +226,13 @@ Each entry should include:
 
 **Issues Found:**
 
-1. **Kaggle authentication in Colab (2nd failure)**
-   - Previous fix used `KAGGLE_API_TOKEN` environment variable
-   - Colab's pre-installed `kaggle` package does not recognize this variable — it authenticates on import and only reads `kaggle.json`
-   - Fix: Write `kaggle.json` to `~/.config/kaggle/` with username + API key (universally compatible)
-   - Lesson: Test auth fixes in the actual target environment, not just locally
+1. **Kaggle authentication in Colab (3 failures, 4 iterations)**
+   - **Attempt 1** (previous session): Used `KAGGLE_API_TOKEN` environment variable — Colab's pre-installed `kaggle` package does not recognize this variable, it only reads `kaggle.json`
+   - **Attempt 2**: Wrote `kaggle.json` to `~/.config/kaggle/` — wrong path. Kaggle CLI reads from `~/.kaggle/`, not `~/.config/kaggle/`
+   - **Attempt 3**: Fixed path to `~/.kaggle/`, but Kaggle changed their API — no longer offers legacy `kaggle.json` downloads. New tokens use `KGAT_` prefix format
+   - **Attempt 4**: Upgraded `kaggle` package via `pip install --upgrade kaggle` — broke Colab with `ImportError: cannot import name 'get_access_token_from_env' from 'kagglesdk'` (dependency conflict with Colab's environment)
+   - **Final fix**: Bypassed `kaggle` CLI entirely. Used `requests` library with direct Kaggle API call and `KGAT_` token as HTTP bearer token (`Authorization: Bearer KGAT_xxx`)
+   - Lesson: External APIs change auth methods over time. CLI wrappers may lag behind or conflict with host environments. Direct HTTP calls with documented API endpoints are the most portable approach
 
 2. **Side-by-side plot scaling (Cell 7)**
    - Two histograms displayed side-by-side with independent y-axes
@@ -250,8 +252,10 @@ Each entry should include:
   - Test visualizations at presentation scale (projector/screen), not just notebook
 - Add "External API Authentication" note to portability checklist:
   - Always test auth in the target environment (Colab, not local)
-  - Prefer file-based auth (`kaggle.json`) over env vars for broader compatibility
-  - Document the auth method and version that was tested
+  - Prefer direct HTTP API calls over CLI wrappers for portability
+  - CLI packages may conflict with host environment dependencies (e.g., Colab's pre-installed packages)
+  - External APIs change auth methods — document the method and version tested
+  - Bearer token auth via `requests` is more portable than CLI tools
 - Add "Blog/Communication Deliverable" as a standard project phase (see dsm-feedback-blog.md for full process)
 
 **Backlog Items Created:**

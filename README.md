@@ -99,8 +99,8 @@ Transformers/BERT (2018+)
 **Google Colab (recommended):**
 1. Open `notebooks/s03_disaster_tweets.ipynb` in Colab
 2. Select **T4 GPU** runtime (Runtime → Change runtime type) for faster Sentence Transformers
-3. The notebook prompts for Kaggle credentials:
-   - Get API token from [Kaggle Settings → API](https://www.kaggle.com/settings)
+3. The notebook prompts for a Kaggle API token (`KGAT_` format):
+   - Generate token at [Kaggle Settings → API → Create New Token](https://www.kaggle.com/settings)
    - [Accept competition rules](https://www.kaggle.com/c/nlp-getting-started/rules) (required for download)
 4. Dependencies install automatically
 
