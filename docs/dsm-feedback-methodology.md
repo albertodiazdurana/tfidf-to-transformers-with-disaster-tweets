@@ -3,7 +3,7 @@
 **Project:** Disaster Tweet Classification (Sprint 3)
 **Author:** Alberto Diaz Durana
 **Date:** January 2026
-**Duration:** 5 days (4 development + 1 Colab testing/docs)
+**Duration:** 7 days (4 development + 1 Colab testing + 1 blog/publication + 1 presentation/closure)
 
 ---
 
@@ -13,8 +13,8 @@
 |------|---------|--------|
 | **Objective** | Binary tweet classification | Same |
 | **Dataset** | Kaggle NLP Getting Started (train.csv) | Same, 7,613 tweets |
-| **Timeline** | 4 days dev + Day 5 presentation | 4 days dev + Day 5 Colab compat |
-| **Deliverables** | Notebook + presentation | Notebook + README + blog materials + Q&A doc |
+| **Timeline** | 4 days dev + Day 5 presentation | 4 days dev + Day 5 Colab + Day 6 blog + Day 7 presentation |
+| **Deliverables** | Notebook + presentation | Notebook + README + blog + 3 DSM feedback docs + presentation |
 | **Environments** | Local (VSCode) + Colab | Same, Colab verified on Day 5 |
 
 ---
@@ -71,9 +71,21 @@
 ### Phase 8: Colab Compatibility (Day 5)
 - **Package installation:** gensim, sentence-transformers, xgboost (not pre-installed in Colab)
 - **Directory creation:** `os.makedirs('../outputs/figures', exist_ok=True)`
-- **Kaggle auth:** API token via `KAGGLE_API_TOKEN` env var (changed from JSON in 2025)
+- **Kaggle auth:** Direct HTTP API call with `KGAT_` bearer token via `requests` library. Bypasses `kaggle` CLI entirely — CLI wrappers conflict with Colab's pre-installed packages and lag behind Kaggle's auth changes (legacy `kaggle.json` deprecated, new `KGAT_` prefix tokens introduced). Endpoint: `https://www.kaggle.com/api/v1/competitions/data/download-all/{competition}`
 - **Data paths:** Fallback logic (local path → Colab working directory)
 - **Runtime:** T4 GPU recommended for Sentence Transformers encoding
+
+### Phase 9: Blog & Publication (Day 6)
+- **Blog preparation:** Materials document (blog-materials.md) with story arc, references, key insights
+- **Blog writing:** ~2,700 words, 15 academic citations, collaborative editorial process with Claude Code
+- **Publication strategy:** LinkedIn short post → LinkedIn Article → follow-up comment linking them
+- **Process documented in:** dsm-feedback-blog.md
+
+### Phase 10: Presentation & Closure (Day 7)
+- **Presentation delivery:** Presented to instructor Marcel De Sutter
+- **Instructor feedback captured:** Embedding visualization, grouped data splitting, explainability tradeoffs
+- **Project closure:** Final reflection across all feedback documents, missing feedback identified
+- **Process documented in:** dsm-feedback-backlogs.md (Day 7 entry + Final Closure section)
 
 ---
 
@@ -151,9 +163,11 @@ tfidf-to-transformers-with-disaster-tweets/
 │   │   ├── s03_d03_checkpoint.md       # Modeling
 │   │   ├── s03_d04_checkpoint.md       # Advanced NLP
 │   │   └── s03_d05_checkpoint.md       # Colab compat
-│   ├── blog-materials.md
-│   ├── dsm-feedback-backlogs.md        # Process feedback
-│   └── dsm-feedback-methodology.md     # This file
+│   ├── blog-materials.md               # Blog preparation materials
+│   ├── blog-post-draft.md              # Full technical article (~2,700 words)
+│   ├── dsm-feedback-backlogs.md        # Process feedback (daily entries)
+│   ├── dsm-feedback-methodology.md     # This file
+│   └── dsm-feedback-blog.md            # Blog writing process feedback
 ├── lectures/
 │   ├── presentation-qa.md
 │   └── (course materials)
@@ -181,7 +195,9 @@ tfidf-to-transformers-with-disaster-tweets/
 2. **Day 4 repurposed:** Used for embeddings/transformers instead of presentation prep
 3. **Day 5 was Colab, not presentation:** Compatibility required more work than planned
 4. **Data leakage found:** Not in plan — caught during Day 4 code review
-5. **Kaggle auth changed:** Plan assumed `kaggle.json`, reality required API token env var
+5. **Kaggle auth changed:** Plan assumed `kaggle.json`, reality required 4 iterations ending with direct HTTP bearer token auth (bypassing CLI entirely)
+6. **Blog post added:** Full technical article (~2,700 words, 15 citations) not in original plan — emerged as a communication deliverable
+7. **Project extended to 7 days:** Original 5-day plan expanded to include blog (Day 6) and presentation/closure (Day 7)
 
 ---
 
@@ -195,5 +211,6 @@ tfidf-to-transformers-with-disaster-tweets/
 5. **Embedding comparison framework:** TF-IDF vs static embeddings vs contextual embeddings
 
 ### Recommended Standard DSM Feedback Outputs
-1. **dsm-feedback-backlogs.md** — Process feedback collected during execution
+1. **dsm-feedback-backlogs.md** — Process feedback collected during execution (daily entries + closure)
 2. **dsm-feedback-methodology.md** — Final project structure, tools, pipeline, plan vs reality
+3. **dsm-feedback-blog.md** — Blog/communication deliverable process feedback (when applicable)
