@@ -40,7 +40,7 @@ By building each approach and comparing results empirically, we develop intuitio
 ## The NLP Evolution (Explored in This Project)
 
 ```
-TF-IDF (2000s)
+TF-IDF (1972)
     ↓ "Words are independent counts"
 Word2Vec/GloVe (2013-2014)
     ↓ "Words are dense vectors with semantic meaning"
@@ -75,7 +75,12 @@ Transformers/BERT (2018+)
 ├── outputs/figures/                # Visualizations
 └── docs/
     ├── plan/                       # Project plan
-    └── checkpoints/                # Daily progress
+    ├── checkpoints/                # Daily progress
+    ├── blog-post-draft.md          # Full technical article
+    ├── blog-materials.md           # Blog preparation materials
+    ├── dsm-feedback-backlogs.md    # DSM process feedback
+    ├── dsm-feedback-methodology.md # Project methodology for DSM
+    └── dsm-feedback-blog.md        # Blog creation process feedback
 ```
 
 ## Notebook Sections

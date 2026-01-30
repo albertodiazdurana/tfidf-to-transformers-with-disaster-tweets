@@ -208,3 +208,51 @@ Each entry should include:
   - "Paris - France + Japan = Tokyo" (geography)
   - "doctor - man + woman = doctor" (profession, shows bias awareness)
   - "good - better = bad - worse" (analogy)
+
+---
+
+### Day 6 - Blog, Publication & Presentation (2026-01-30)
+
+**DSM Sections Referenced:**
+- PM Guidelines: Communication deliverables
+- DSM_4.0 Software Engineering (deployment, portability)
+
+**What Worked Well:**
+- Materials-first approach for blog writing (blog-materials.md before drafting)
+- Scoping questions (platform, audience, tone, length) prevented misaligned drafts
+- Line-by-line editorial review caught uncited claims, jargon, and factual errors
+- Final citation scan found 5 additional missing references and 3 factual issues
+- Staggered LinkedIn publication strategy (short post first, article later, comment linking them)
+
+**Issues Found:**
+
+1. **Kaggle authentication in Colab (2nd failure)**
+   - Previous fix used `KAGGLE_API_TOKEN` environment variable
+   - Colab's pre-installed `kaggle` package does not recognize this variable — it authenticates on import and only reads `kaggle.json`
+   - Fix: Write `kaggle.json` to `~/.config/kaggle/` with username + API key (universally compatible)
+   - Lesson: Test auth fixes in the actual target environment, not just locally
+
+2. **Side-by-side plot scaling (Cell 7)**
+   - Two histograms displayed side-by-side with independent y-axes
+   - Different scales made visual comparison misleading — proportions appeared distorted
+   - Fix: Added `sharey=True` to `plt.subplots()` so both plots share the same y-axis
+   - Lesson: Side-by-side comparison plots must share axes to be meaningful
+
+3. **Notebook header outdated**
+   - Title still said "Disaster Tweet Classification" (generic)
+   - Updated to match blog: "From TF-IDF to Transformers: What Classifying Disaster Tweets Taught Me About How We Got to LLMs"
+   - Objective, dataset info, and section list updated to reflect actual content
+
+**Suggestion for DSM Improvement:**
+- Add "Visualization Checklist" to PM Guidelines:
+  - Side-by-side plots: use `sharey=True` or `sharex=True` for fair comparison
+  - Always label axes, include units where applicable
+  - Test visualizations at presentation scale (projector/screen), not just notebook
+- Add "External API Authentication" note to portability checklist:
+  - Always test auth in the target environment (Colab, not local)
+  - Prefer file-based auth (`kaggle.json`) over env vars for broader compatibility
+  - Document the auth method and version that was tested
+- Add "Blog/Communication Deliverable" as a standard project phase (see dsm-feedback-blog.md for full process)
+
+**Backlog Items Created:**
+- BACKLOG-011: LinkedIn Publication Strategy (documented in dsm-feedback-blog.md)
