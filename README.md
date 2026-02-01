@@ -2,6 +2,8 @@
 
 **Sprint 3 Project** - MasterSchool NLP & LLMs Course
 
+**Read the full article:** [From TF-IDF to Transformers: What Classifying Disaster Tweets Taught Me About How We Got to LLMs](URL)
+
 ## The Problem
 
 **Task:** Classify tweets as disaster-related (1) or non-disaster (0)
